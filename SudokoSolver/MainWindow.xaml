@@ -1,0 +1,46 @@
+﻿<Window x:Class="SudokoSolver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SudokoSolver"
+        xmlns:cons="clr-namespace:SudokoSolver.Converters"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:vms="clr-namespace:SudokoSolver.SudokuModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1200">
+    <Window.DataContext>
+        <vms:SudokuBoard />
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Views/SudokuSquareTemplate.xaml"/>
+                <ResourceDictionary Source="Views/SudokuRegionTemplate.xaml"/>
+                <ResourceDictionary Source="Views/SudokuBoardTemplate.xaml"/>
+                <ResourceDictionary Source="Views/StylesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.Resources>
+            <cons:BooleanToVisisbilityConverter x:Key="BoolToVis" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <ContentControl Grid.Column="0" Content="{Binding}" />
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <Button Command="{Binding SolveOneSquare}" Content="Solve One Square" />
+            <Button Command="{Binding SolvePossibleSquaresCommand}" Content="Solve Possible Squares" />
+            <Button Command="{Binding VerifyBoardCommand}" Content="Verify Board" />
+            <CheckBox IsChecked="{Binding ShowHints}" Content="Show Hints" />
+            <Grid  Margin="20" VerticalAlignment="Bottom" Visibility="{Binding IsSolving,Converter={StaticResource BoolToVis}}">
+                <fa:ImageAwesome Icon="Refresh" Spin="True" Height="48" Width="48" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

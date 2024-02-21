@@ -48,3 +48,5 @@ Ankh.NoLoad
 
 #Project files
 [Bb]uild/
+*.vsidx
+/SudokoSolver/.vs

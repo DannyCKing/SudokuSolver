@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vms="clr-namespace:SudokoSolver.SudokuModels"
+                    >
+    <DataTemplate DataType="{x:Type vms:SudokuBoard}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Regions[0]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Regions[1]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Regions[2]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Regions[3]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Regions[4]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="1" Grid.Column="2" Content="{Binding Regions[5]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="2" Grid.Column="0" Content="{Binding Regions[6]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="2" Grid.Column="1" Content="{Binding Regions[7]}" IsTabStop="False"/>
+            <ContentControl Grid.Row="2" Grid.Column="2" Content="{Binding Regions[8]}" IsTabStop="False"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

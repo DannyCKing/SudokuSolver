@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vms="clr-namespace:SudokoSolver.SudokuModels"
+                    xmlns:cons="clr-namespace:SudokoSolver.Converters"
+                    >
+    <cons:StateToColorConverter x:Key="BackgroundCon" />
+    <DataTemplate DataType="{x:Type vms:SudokuRegion}">
+        <Border BorderBrush="{Binding CurrentState, Converter={StaticResource BackgroundCon}}" BorderThickness="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ContentControl Grid.Row="0" Grid.Column="0" Content="{Binding Squares[0]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="0" Grid.Column="1" Content="{Binding Squares[1]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="0" Grid.Column="2" Content="{Binding Squares[2]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding Squares[3]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding Squares[4]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="1" Grid.Column="2" Content="{Binding Squares[5]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="2" Grid.Column="0" Content="{Binding Squares[6]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="2" Grid.Column="1" Content="{Binding Squares[7]}" IsTabStop="False"/>
+                <ContentControl Grid.Row="2" Grid.Column="2" Content="{Binding Squares[8]}" IsTabStop="False"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+</ResourceDictionary>
